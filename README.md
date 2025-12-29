@@ -17,6 +17,15 @@ A respectful, brand-safe debt recovery voice agent for large enterprises in Fran
 - Node.js 18+
 - ElevenLabs API key with Conversational AI access
 
+### Steps : 
+
+* Clone the repo.
+* run `npm install` inside the project directory.
+* run `npm run dev` and follow the link in terminal.
+* add the `ELEVENLABS_API_KEY` in .env.
+* add the `agent_id` in configuration.
+* click the phone button to chat with agent.
+
 ### Environment Variables
 
 The following secrets must be configured in the backend:
@@ -157,4 +166,4 @@ The agent is programmed to:
 
 **Web Demo**:
 
-Click the phone button to start a voice conversation with the agent.
+Click the phone button to start a voice conversation with the agent. [[https://bonjour-collect.vercel.app](https://bonjour-collect.vercel.app/)/ [use this agent id : agent_3301kdn6mpsxe1qrwznh0abvegf7 ]]
