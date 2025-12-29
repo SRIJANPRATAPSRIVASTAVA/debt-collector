@@ -1,0 +1,38 @@
+{
+  "clients": {
+    "amazon_business": {
+      "name": "Amazon Business",
+      "greeting": "Bonjour, je suis conseillère pour Amazon Business.",
+      "tone": "formal",
+      "company_mention": "Amazon Business",
+      "payment_intro": "Concernant votre compte Amazon Business, nous avons constaté",
+      "payment_link_text": "Je peux vous envoyer un lien de paiement sécurisé par email ou SMS.",
+      "followup_text": "Souhaitez-vous qu'un conseiller vous rappelle à un moment plus opportun ?",
+      "closing": "Merci d'avoir pris le temps de discuter avec Amazon Business. Bonne journée.",
+      "primary_color": "#FF9900"
+    },
+    "dell": {
+      "name": "Dell Technologies",
+      "greeting": "Bonjour, je suis conseillère pour Dell Technologies.",
+      "tone": "tech_friendly",
+      "company_mention": "Dell",
+      "payment_intro": "Je vous contacte au sujet de votre compte Dell Technologies concernant",
+      "payment_link_text": "Je peux vous transmettre un lien de paiement sécurisé immédiatement.",
+      "followup_text": "Préférez-vous planifier un rappel à un moment qui vous convient mieux ?",
+      "closing": "Merci pour votre temps. L'équipe Dell reste à votre disposition. À bientôt.",
+      "primary_color": "#007DB8"
+    },
+    "microsoft": {
+      "name": "Microsoft",
+      "greeting": "Bonjour, je suis conseillère pour Microsoft.",
+      "tone": "supportive",
+      "company_mention": "Microsoft",
+      "payment_intro": "Je vous appelle concernant votre compte Microsoft au sujet de",
+      "payment_link_text": "Je peux vous envoyer un lien de paiement sécurisé via votre email ou téléphone.",
+      "followup_text": "Si vous préférez, nous pouvons organiser un rappel à un autre moment.",
+      "closing": "Merci beaucoup pour cet échange. Microsoft vous souhaite une excellente journée.",
+      "primary_color": "#00A4EF"
+    }
+  },
+  "default_client": "amazon_business"
+}

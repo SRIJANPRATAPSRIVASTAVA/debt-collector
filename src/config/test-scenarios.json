@@ -1,0 +1,147 @@
+{
+  "scenarios": [
+    {
+      "id": "successful_identification",
+      "name": "Identification réussie",
+      "description": "Le débiteur confirme son identité correctement",
+      "messages": [
+        { "role": "user", "content": "Oui bonjour ?" },
+        { "role": "assistant", "content": null },
+        { "role": "user", "content": "Oui c'est bien moi, Jean Dupont" },
+        { "role": "assistant", "content": null },
+        { "role": "user", "content": "Ma date de naissance est le 15 mars 1985" }
+      ],
+      "expected_outcomes": ["identification_confirmed", "proceed_to_payment"],
+      "category": "identification"
+    },
+    {
+      "id": "wrong_person",
+      "name": "Mauvaise personne",
+      "description": "La personne au téléphone n'est pas le débiteur",
+      "messages": [
+        { "role": "user", "content": "Allô ?" },
+        { "role": "assistant", "content": null },
+        { "role": "user", "content": "Non, Jean Dupont n'habite plus ici depuis deux ans" }
+      ],
+      "expected_outcomes": ["wrong_person_handled", "polite_closure"],
+      "category": "identification"
+    },
+    {
+      "id": "robot_question",
+      "name": "Question robot",
+      "description": "L'utilisateur demande si c'est un robot",
+      "messages": [
+        { "role": "user", "content": "Attendez, vous êtes un robot ou quoi ?" }
+      ],
+      "expected_outcomes": ["human_like_response", "continue_conversation"],
+      "category": "edge_case"
+    },
+    {
+      "id": "payment_acceptance",
+      "name": "Acceptation de paiement",
+      "description": "Le débiteur accepte de régler sa dette",
+      "messages": [
+        { "role": "user", "content": "D'accord, je comprends. Comment je peux payer ?" },
+        { "role": "assistant", "content": null },
+        { "role": "user", "content": "Oui, envoyez-moi le lien par email s'il vous plaît" }
+      ],
+      "expected_outcomes": ["payment_link_offered", "email_confirmation"],
+      "category": "payment"
+    },
+    {
+      "id": "payment_delay_request",
+      "name": "Demande de délai",
+      "description": "Le débiteur demande un délai de paiement",
+      "messages": [
+        { "role": "user", "content": "Je ne peux pas payer maintenant, j'ai des difficultés financières" },
+        { "role": "assistant", "content": null },
+        { "role": "user", "content": "Oui, je pourrais payer dans deux semaines" }
+      ],
+      "expected_outcomes": ["empathy_shown", "callback_offered"],
+      "category": "payment"
+    },
+    {
+      "id": "confused_caller",
+      "name": "Appelant confus",
+      "description": "L'utilisateur ne comprend pas l'objet de l'appel",
+      "messages": [
+        { "role": "user", "content": "Je ne comprends pas, de quoi vous parlez ?" },
+        { "role": "assistant", "content": null },
+        { "role": "user", "content": "Ah oui, la facture... je l'avais oubliée" }
+      ],
+      "expected_outcomes": ["clarification_provided", "understanding_confirmed"],
+      "category": "confusion"
+    },
+    {
+      "id": "angry_caller",
+      "name": "Appelant irrité",
+      "description": "L'utilisateur est frustré ou en colère",
+      "messages": [
+        { "role": "user", "content": "C'est quoi ces appels ? Vous m'harcelez !" },
+        { "role": "assistant", "content": null },
+        { "role": "user", "content": "D'accord, excusez-moi, je suis stressé en ce moment" }
+      ],
+      "expected_outcomes": ["calm_response", "deescalation", "empathy_shown"],
+      "category": "emotion"
+    },
+    {
+      "id": "language_switch",
+      "name": "Changement de langue",
+      "description": "L'utilisateur tente de parler en anglais",
+      "messages": [
+        { "role": "user", "content": "Sorry, can you speak English please?" }
+      ],
+      "expected_outcomes": ["french_maintained", "polite_redirect"],
+      "category": "edge_case"
+    },
+    {
+      "id": "dispute_claim",
+      "name": "Contestation de dette",
+      "description": "Le débiteur conteste la dette",
+      "messages": [
+        { "role": "user", "content": "Je ne dois rien du tout ! Cette facture est fausse !" },
+        { "role": "assistant", "content": null },
+        { "role": "user", "content": "Oui, je veux parler à quelqu'un d'autre" }
+      ],
+      "expected_outcomes": ["dispute_acknowledged", "escalation_offered"],
+      "category": "dispute"
+    },
+    {
+      "id": "callback_request",
+      "name": "Demande de rappel",
+      "description": "Le débiteur demande à être rappelé plus tard",
+      "messages": [
+        { "role": "user", "content": "Je suis au travail là, vous pouvez me rappeler ce soir ?" },
+        { "role": "assistant", "content": null },
+        { "role": "user", "content": "Vers 19h serait parfait" }
+      ],
+      "expected_outcomes": ["callback_scheduled", "polite_closure"],
+      "category": "scheduling"
+    },
+    {
+      "id": "partial_payment",
+      "name": "Paiement partiel",
+      "description": "Le débiteur propose un paiement partiel",
+      "messages": [
+        { "role": "user", "content": "Je ne peux payer que la moitié pour l'instant, c'est possible ?" }
+      ],
+      "expected_outcomes": ["partial_payment_discussed", "options_provided"],
+      "category": "payment"
+    },
+    {
+      "id": "privacy_concern",
+      "name": "Préoccupation vie privée",
+      "description": "L'utilisateur s'inquiète de la confidentialité",
+      "messages": [
+        { "role": "user", "content": "Comment avez-vous eu mon numéro ? C'est légal ça ?" }
+      ],
+      "expected_outcomes": ["privacy_addressed", "legitimacy_explained"],
+      "category": "edge_case"
+    }
+  ],
+  "metrics": {
+    "success_rate_threshold": 0.85,
+    "max_response_time_ms": 3000,
+    "p95_response_time_ms": 2000
+  }
+}
